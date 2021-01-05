@@ -33,19 +33,14 @@ int main(){
 		total = interest + newbalance;
 		cout << setw(13) << left << total;
 		if(payment > total){
-			cout << setw(13) << left << total;
-			newbalance = 0.00;
-			cout << setw(13) << left << newbalance;
-			cout << "\n";
+			payment = total;
 		}
-		else{
-			cout << setw(13) << left << payment;
-			newbalance = total - payment;
-			cout << setw(13) << left << newbalance;
-			cout << "\n";
-		}
+		cout << setw(13) << left << payment;
+		newbalance = total-payment;
+		cout << setw(13) << left << newbalance;
+		cout<<"\n";
 		year++;
-	} while(payment < newbalance);
+	} while(payment < newbalance*(100+rate)/100);
 	if(payment <= loan){
 		cout << fixed << setprecision(2);
 		cout << setw(13) << left << year;
